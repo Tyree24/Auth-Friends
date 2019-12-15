@@ -14,7 +14,22 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 isFetching: false,
                 token: action.payload,
-                error
+                error: ""
+            };
+        case LOGINSUCCESS:
+            return {
+                ...state,
+                isFetching: false,
+                token: action.payload,
+                error: ""
+            };
+        case LOGINFAILURE:
+            return {
+                ...state,
+                isFetching: false,
+                token: action.payload,
+                error: ""
             }
-    }
-}
+    };
+                                default:
+return state;
