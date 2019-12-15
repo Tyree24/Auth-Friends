@@ -33,7 +33,7 @@ function Login(props) {
                 console.log("Login.js: axiosWithAuth: res ", res);
                 localStorage.setItem("token", res.data.payload);
                 this.props.history.push("/friendslist");
-
+                setIsLoading(false);
             })
             .catch(err => console.log(err));
     };
