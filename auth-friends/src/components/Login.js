@@ -34,6 +34,8 @@ function Login(props) {
                 localStorage.setItem("token", res.data.payload);
                 this.props.history.push("/friendslist");
                 setIsLoading(false);
+                props.history.push("/friendslist");
+
             })
             .catch(err => console.log(err));
     };

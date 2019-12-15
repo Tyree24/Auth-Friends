@@ -17,8 +17,15 @@ function FriendsList() {
     };
 
     useEffect(() => {
-        getData();
+        axiosWithAuth()
+            .get("/friends")
+            .then(res => {
+                console.log("FriendsList.js: axios.get: res ", res);
+                setFriends(res.data);
+            })
+            .catch(err => console.log(err));
     }, []);
+
     return (
         <div>
             <h2>FriendsList</h2>
