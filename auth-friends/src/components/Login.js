@@ -9,8 +9,11 @@ const loginStyles = {
 };
 
 
-function Login() {
-    const [credentials, setCredentials] = useState({});
+function Login(props) {
+    const [credentials, setCredentials] = useState({
+        username: "",
+        password: ""
+    });
     const [isLoading, setIsLoading] = useState(false);
 
     const handleChanges = e => {
@@ -27,7 +30,10 @@ function Login() {
         axiosWithAuth()
             .post("/login", credentials)
             .then(res => {
-                console.log(res);
+                console.log("Login.js: axiosWithAuth: res ", res);
+                localStorage.setItem("token", res.data.payload);
+                this.props.history.push("/friendslist");
+
             })
             .catch(err => console.log(err));
     };
